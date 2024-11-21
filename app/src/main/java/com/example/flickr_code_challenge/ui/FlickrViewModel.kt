@@ -44,14 +44,12 @@ class FlickrViewModel: ViewModel() {
                     val response = try{
                         ApiServices.api.getImages(textInput.value)
                     }catch (e:Exception){
-                        println(e.stackTraceToString())
                         null
                     }
 
                     if (response != null && response.isSuccessful){
                         _images.value =  IOResult(ResultType.SUCCESS, response.body()?.items ?: emptyList())
                     }else{
-                        println(response?.code())
                         _images.value =  IOResult(ResultType.FAILED, null )
 
                     }
