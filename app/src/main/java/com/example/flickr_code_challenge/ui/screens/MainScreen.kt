@@ -35,7 +35,6 @@ fun MainScreen(controller: NavController?, viewModel: FlickrViewModel) {
     Column{
         FlickrSearch(viewModel)
 
-//        AsyncImage("https://live.staticflickr.com/65535/54148365548_520f48810e_m.jpg",null)
 
         when(viewModel.images.collectAsState().value.type){
             ResultType.FAILED ->{
