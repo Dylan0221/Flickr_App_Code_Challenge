@@ -13,6 +13,7 @@ import coil.compose.AsyncImage
 import com.example.flickr_code_challenge.data.remote.models.FlickrImageDTO
 import com.example.flickr_code_challenge.utils.getFormattedAuthor
 import com.example.flickr_code_challenge.utils.getFormattedDate
+import com.example.flickr_code_challenge.utils.getFormattedDescription
 
 @Composable
 fun DetailsScreen(image: FlickrImageDTO){
@@ -30,7 +31,7 @@ fun DetailsScreen(image: FlickrImageDTO){
 
         }
         Text("TITLE: ${image.title}")
-        Text("DESCRIPTION: ${image.description}")
+        Text("DESCRIPTION: ${image.getFormattedDescription()}")
         Text("AUTHOR: ${image.getFormattedAuthor()}" )
         Text("DATE: ${image.getFormattedDate()}")
     }

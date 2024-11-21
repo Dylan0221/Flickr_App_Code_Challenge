@@ -13,6 +13,12 @@ fun FlickrImageDTO.getFormattedDate():String{
     return str
 }
 
+fun FlickrImageDTO.getFormattedDescription():String{
+    val doc = Jsoup.parse(this.description)
+    val des = doc.getElementsByTag("p").last()?.text()
+    return des ?: "NO VALID DATA"
+}
+
 fun FlickrImageDTO.getFormattedAuthor():String{
     return this.author.substringAfter("(").substringBefore(")")
 }

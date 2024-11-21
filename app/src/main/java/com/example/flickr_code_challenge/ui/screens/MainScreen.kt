@@ -18,6 +18,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -78,7 +79,9 @@ fun FlickrSearch(viewModel: FlickrViewModel){
     TextField(
         value = viewModel.textInput.collectAsState().value,
         onValueChange = { viewModel.changeTextInput(it) },
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
+            .testTag("SearchBar")
     )
 }
 
